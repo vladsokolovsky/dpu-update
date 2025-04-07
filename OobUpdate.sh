@@ -5,10 +5,12 @@
 
 BASE_DIR=`dirname $0`
 PY_SCRIPT=$BASE_DIR/OobUpdate.py
+REQ_SPACE=500 # MB
 
 function check_and_set_env()
 {
     check_tools
+    check_space
 
     # Check and install python requests module
     python3 -m pip show requests > /dev/null 2>&1
@@ -20,6 +22,19 @@ function check_and_set_env()
         fi
     fi
 }
+
+function check_space()
+{
+    # Get available disk space in MB for the current directory
+    available_space=$(df --output=avail -m "/tmp" | tail -n 1)
+
+    # Check if available space is greater than or equal to 500MB
+    if [ "$available_space" -lt $REQ_SPACE ]; then
+        echo "Low disk space: Only ${available_space} MB available"
+        exit 1
+    fi
+}
+
 
 function check_tools()
 {
