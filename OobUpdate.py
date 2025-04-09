@@ -20,10 +20,10 @@ Version = '25.04-1.3'
 
 def get_arg_parser():
     parser = argparse.ArgumentParser()
-    parser.add_argument('-U',             metavar="<username>",        dest="username",     type=str, required=False, help='Username of BMC')
-    parser.add_argument('-P',             metavar="<password>",        dest="password",     type=str, required=False, help='Password of BMC')
-    parser.add_argument('-S',             metavar="<ssh_username>",    dest="ssh_username",     type=str, required=False, help='Username of BMC SSH access')
-    parser.add_argument('-K',             metavar="<ssh_password>",    dest="ssh_password",     type=str, required=False, help='SSH password of BMC')
+    parser.add_argument('-U',             metavar="<username>",        dest="username",     type=str, required=True, help='Username of BMC')
+    parser.add_argument('-P',             metavar="<password>",        dest="password",     type=str, required=True, help='Password of BMC')
+    parser.add_argument('-S',             metavar="<ssh_username>",    dest="ssh_username",     type=str, required=True, help='Username of BMC SSH access')
+    parser.add_argument('-K',             metavar="<ssh_password>",    dest="ssh_password",     type=str, required=True, help='SSH password of BMC')
     parser.add_argument('-F',             metavar="<firmware_file>",   dest="fw_file_path", type=str, required=False, help='Firmware file path (absolute/relative)')
     parser.add_argument('-T',             metavar="<module>",          dest="module",       type=str, required=False, help='The module to be updated: BMC|CEC|BIOS|FRU|CONFIG|BUNDLE', choices=('BMC', 'CEC', 'BIOS', 'FRU', 'CONFIG', 'BUNDLE'))
     parser.add_argument('-H',             metavar="<bmc_ip>",          dest="bmc_ip",       type=str, required=False, help='IP/Host of BMC')
