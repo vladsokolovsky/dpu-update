@@ -1125,7 +1125,16 @@ class BF_DPU_Update(object):
         try:
             state = response.json()['BootProgress']['OemLastState']
         except Exception as e:
-            raise Err_Exception(Err_Num.BAD_RESPONSE_FORMAT, 'Failed to extract DPU(ARM) boot state')
+            print
+            # Retry once if failed in case BMC reboot is in progress
+            self._wait_for_bmc_on()
+            try:
+                response = self._http_get(url)
+                self.log('Get DPU(ARM) boot state', response)
+                self._handle_status_code(response, [200])
+                state = response.json()['BootProgress']['OemLastState']
+            except Exception as e:
+                raise Err_Exception(Err_Num.BAD_RESPONSE_FORMAT, 'Failed to extract DPU(ARM) boot state')
         return state
 
 
