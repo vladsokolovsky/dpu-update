@@ -11,6 +11,7 @@ function check_and_set_env()
 {
     check_tools
     check_space
+    check_services
 
     # Check and install python requests module
     python3 -m pip show requests > /dev/null 2>&1
@@ -20,6 +21,16 @@ function check_and_set_env()
         if [ $? != 0 ];then
             sudo python3 -m pip install --no-index --find-links=$BASE_DIR/packages requests
         fi
+    fi
+}
+
+function check_services()
+{
+    # RSHIM service should be stopped before running it on the BMC
+    systemctl is-active --quiet rshim
+    if [ $? == 0 ];then
+        echo "RSHIM service is running. Stopping it..."
+        systemctl stop rshim
     fi
 }
 
@@ -34,7 +45,6 @@ function check_space()
         exit 1
     fi
 }
-
 
 function check_tools()
 {
