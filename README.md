@@ -51,20 +51,20 @@ Notes:
 ## Examples
 ### Show firmware versions for all modules
     # ./OobUpdate.sh -U root -P Nvidia20240604-- -H 10.237.121.98 --show_all_versions
-           BMC :                              BF-24.10-24
-           CEC :                      00.02.0195.0000_n02
-           ATF :        v2.2(release):4.9.2-14-geeb9a6f94
-         BOARD :                            MT_0000000884
-           BSP :                              4.9.2.13551
-           NIC :                               32.43.2566
-          NODE :                      9c63:c003:00e6:b390
-          OFED :              MLNX_OFED_LINUX-24.10-2.1.8
-            OS : bf-bundle-2.9.2-31_25.02_ubuntu-22.04_prod
-     SYS_IMAGE :                      9c63:c003:00e6:b380
-          UEFI :                     4.9.2-25-ge0f86cebd6
-     ARM_IMAGE :                              4.9.0.13378
-    CONF_IMAGE :                                        2
-     NIC_IMAGE :                               32.43.1014
+             BMC :                                BF-24.10-24
+             CEC :                        00.02.0195.0000_n02
+             ATF :          v2.2(release):4.9.2-14-geeb9a6f94
+           BOARD :                              MT_0000000884
+             BSP :                                4.9.2.13551
+             NIC :                                 32.43.2566
+            NODE :                        9c63:c003:00e6:b390
+            OFED :                MLNX_OFED_LINUX-24.10-2.1.8
+              OS : bf-bundle-2.9.2-31_25.02_ubuntu-22.04_prod
+       SYS_IMAGE :                        9c63:c003:00e6:b380
+            UEFI :                       4.9.2-25-ge0f86cebd6
+golden_image_arm :                                4.9.2.13551
+      CONF_IMAGE :                                          2
+golden_image_nic :                                 32.43.2566
 
 ### Update BMC firmware
 

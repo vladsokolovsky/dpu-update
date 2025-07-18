@@ -32,8 +32,6 @@ class BF_DPU_Update(object):
         'OFED'      : 'DPU_OFED',
         'OS'        : 'DPU_OS',
         'SYS_IMAGE' : 'DPU_SYS_IMAGE',
-        'ARM_IMAGE' : 'golden_image_arm',
-        'NIC_IMAGE' : 'golden_image_nic',
         'CONF_IMAGE': 'golden_image_config',
         'BOARD'     : 'DPU_BOARD'
     }
@@ -1623,7 +1621,7 @@ class BF_DPU_Update(object):
 
     def show_versions(self, vers):
         for module, ver in vers.items():
-            print("%10s : %40s"%(module, ver))
+            print("%17s : %50s"%(module, ver))
 
     def get_info_data_version(self, module):
         if not self.info_data:
